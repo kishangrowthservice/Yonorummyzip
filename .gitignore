@@ -30,3 +30,5 @@ Thumbs.db
 /new_pages_raw
 *.png
 scratch/
+
+.vercel
