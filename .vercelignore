@@ -1,0 +1,13 @@
+node_modules
+/.next
+/new_pages_raw
+/scripts
+new_pages_index.json
+new_ref_all_urls.json
+/*_viewport.png
+/*_fullpage.png
+/*_screenshot.png
+/vercel_*.png
+/local_*.png
+/new_ref_*.png
+/scratch
