@@ -32,7 +32,7 @@ body.app-body {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0.25rem 1rem;
   box-sizing: border-box;
 }
 
@@ -54,7 +54,7 @@ body.app-body {
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0.25rem 1rem;
   box-sizing: border-box;
 }
 
@@ -66,10 +66,10 @@ body.app-body {
 }
 
 .winner-logo-img {
-  height: 38px;
+  height: 54px;
   width: auto;
   object-fit: contain;
-  border-radius: 8px;
+  border-radius: 12px;
 }
 
 .winner-nav-title {
@@ -844,7 +844,7 @@ html.light .accordion-button {
 
 @media (max-width: 480px) {
   .winner-logo-img {
-    height: 32px;
+    height: 44px;
   }
   .winner-telegram-icon {
     width: 34px;

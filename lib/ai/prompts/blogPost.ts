@@ -1,7 +1,7 @@
 /**
  * Yono Games AI Blog Generator Prompt
  * 
- * Adapted for All Yono Games 99 (allyonogames99.com).
+ * Adapted for Yono Rummy Zip (yonorummyzip.com).
  * Produces structured, high-conversion articles with clean semantic HTML.
  */
 
@@ -26,7 +26,7 @@ export function buildBlogPostPrompt(args: BlogPostPromptArgs): string {
 
   const primaryKeyword = keywords[0] || topic;
   const keywordList = keywords.length > 0 ? keywords.join(', ') : topic;
-  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'All Yono Games 99';
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'Yono Rummy Zip';
   const siteDomain = process.env.SITE_DOMAIN || 'allyonogames99.com';
 
   return `You are a veteran gaming analyst and lead editor for ${siteName} (${siteDomain}), India's leading portal for all official Yono apps, Rummy, Teen Patti, and real-cash gaming guides.

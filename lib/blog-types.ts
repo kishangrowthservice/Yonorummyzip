@@ -1,4 +1,4 @@
-export type TargetSiteDomain = 'allyonogames99.com' | string;
+export type TargetSiteDomain = 'yonorummyzip.com' | string;
 
 export interface BlogPost {
   id: string;

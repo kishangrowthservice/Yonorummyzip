@@ -9,7 +9,7 @@ const POSTS_JSON_PATH = path.join(process.cwd(), 'data', 'posts.json');
 /**
  * Standardize and normalize site domain identifier
  * e.g., "https://yonoallapps.com/" -> "yonoallapps.com"
- * e.g., "www.allyonogames99.com" -> "allyonogames99.com"
+ * e.g., "www.yonorummyzip.com" -> "yonorummyzip.com"
  */
 export function normalizeSiteDomain(site?: string | null): string {
   if (!site || site === 'all') return site || 'all';

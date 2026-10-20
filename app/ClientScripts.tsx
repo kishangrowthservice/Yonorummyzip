@@ -4,18 +4,18 @@ import { useEffect } from 'react';
 
 const gamesData = [
   {"title":"Win Rummy","slug":"/win-rummy-apk-download","logo":"5d8cfc8179f9a9.webp","bonus":"₹199"},
-  {"title":"Max Rummy","slug":"/maxrummy","logo":"/assets/img/games/maxrummy.svg","bonus":"₹200"},
+  {"title":"Max Rummy","slug":"/maxrummy","logo":"https://www.maxrummy1.com/logo.png","bonus":"₹200"},
   {"title":"Boss Rummy","slug":"/boss-rummy","logo":"mFxAWnKOM46LGHd.webp","bonus":"₹66"},
   {"title":"Yono Rummy","slug":"/yono-rummy","logo":"KIuNTF2OsacBVEg.jpeg","bonus":"₹13"},
   {"title":"Money Rummy","slug":"/money-rummy","logo":"0ee2a1b7e46047.webp","bonus":"₹99"},
   {"title":"Love Rummy","slug":"/love-rummy-apk","logo":"69bbc7380c78cd.webp","bonus":"₹500"},
   {"title":"Yes Spin","slug":"/yes-spin","logo":"SfPRBM9WKIQzVZi.jpg","bonus":"₹119"},
-  {"title":"Spin Crush","slug":"/spin-crush","logo":"/assets/img/games/spin-crush.svg","bonus":"₹50"},
+  {"title":"Spin Crush","slug":"/spin-crush","logo":"https://spincrush69.com/logo.png","bonus":"₹50"},
   {"title":"YN 777","slug":"/yn777","logo":"NDrAL9zT48pXlc7.jpeg","bonus":"₹13"},
-  {"title":"Share Slots","slug":"/share-slots","logo":"/assets/img/games/share-slots.svg","bonus":"₹51"},
-  {"title":"Rummy Zip","slug":"/rummy-zip","logo":"/assets/img/games/rummy-zip.svg","bonus":"₹51"},
-  {"title":"Jeet Spin","slug":"/jeet-spin","logo":"/assets/img/games/jeet-spin.svg","bonus":"₹51"},
-  {"title":"Jaiho Play","slug":"/jaiho-play","logo":"/assets/img/games/jaiho-play.svg","bonus":"₹51"}
+  {"title":"Share Slots","slug":"/share-slots","logo":"https://share677.com/logo.png","bonus":"₹51"},
+  {"title":"Rummy Zip","slug":"/rummy-zip","logo":"https://rummyzip3.com/logo.png","bonus":"₹51"},
+  {"title":"Jeet Spin","slug":"/jeet-spin","logo":"https://www.jeetspin20.com/logo.png","bonus":"₹51"},
+  {"title":"Jaiho Play","slug":"/jaiho-play","logo":"https://jaihorefer10.com/logo.png","bonus":"₹51"}
 ];
 
 export default function ClientScripts() {
@@ -134,7 +134,7 @@ export default function ClientScripts() {
               .map(
                 (g) => `
                 <a href="${g.slug}" class="search-result-item">
-                  <img src="${g.logo.startsWith('/') ? g.logo : '/uploads/' + g.logo}" alt="${g.title}" class="result-logo" width="40" height="40">
+                  <img src="${g.logo.startsWith('http') ? g.logo : g.logo.startsWith('/') ? g.logo : '/uploads/' + g.logo}" alt="${g.title}" class="result-logo" width="40" height="40">
                   <div class="result-info">
                     <p class="result-title">${g.title}</p>
                     <p class="result-meta">Bonus: ${g.bonus}</p>

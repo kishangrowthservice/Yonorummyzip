@@ -14,12 +14,12 @@ export interface SiteConfig {
 }
 
 export const SITE_CONFIG: SiteConfig = {
-  name: process.env.NEXT_PUBLIC_SITE_NAME || 'All Yono Games 99',
-  tagline: "India's #1 All Yono Games, Rummy & Teen Patti Official Portal",
+  name: process.env.NEXT_PUBLIC_SITE_NAME || 'Yono Rummy Zip',
+  tagline: "India's #1 Yono Rummy Zip — Yono Games, Rummy & Teen Patti Official Portal",
   domain: process.env.SITE_DOMAIN || 'allyonogames99.com',
-  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://allyonogames99.com',
+  url: process.env.NEXT_PUBLIC_SITE_URL || 'https://yonorummyzip.com',
   downloadUrl: '/',
-  telegramUrl: 'https://t.me/+all_yono_games_official',
+  telegramUrl: 'https://t.me/yonorummyzip',
   whatsappUrl: 'https://wa.me/?text=Download%20Yono%20Games',
   supportAvailability: '24/7 Fast Customer Care Assistance',
   minWithdrawal: '₹100',

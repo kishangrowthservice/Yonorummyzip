@@ -2,7 +2,7 @@ export default function FloatingTelegram() {
   return (
     <aside aria-label="Official Telegram Community">
       <a
-        href="https://t.me/+all_yono_games_official"
+        href="https://t.me/yonorummyzip"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-[#38bdf8] text-white shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group"

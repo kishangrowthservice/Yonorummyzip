@@ -25,12 +25,12 @@ export function getLayoutSnippets() {
       <div class="winner-nav-inner">
         <div class="winner-logo-section">
           <a href="/">
-            <img src="/assets/img/logo.svg" alt="Yono Rummy Zip Logo" width="100" height="38" class="winner-logo-img">
+            <img src="/assets/img/logo.svg" alt="Yono Rummy Zip Logo" width="54" height="54" class="winner-logo-img">
           </a>
         </div>
         <a href="/" class="winner-nav-title">YonoRummyZip.com</a>
         <div class="winner-telegram-section">
-          <a href="https://t.me/+all_yono_games_official" target="_blank" rel="noopener noreferrer" class="winner-telegram-icon" aria-label="Join Official Telegram">
+          <a href="https://t.me/yonorummyzip" target="_blank" rel="noopener noreferrer" class="winner-telegram-icon" aria-label="Join Official Telegram">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 2l-2 20-6-4-3 4V14L2 10l19-8z"></path>
               <path d="M21 2L9 14"></path>

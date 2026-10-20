@@ -9,8 +9,8 @@ export default function WinnerNavbar() {
             <img
               src="/assets/img/logo.svg"
               alt="Yono Rummy Zip Logo"
-              width={100}
-              height={38}
+              width={54}
+              height={54}
               className="winner-logo-img"
             />
           </Link>
@@ -22,7 +22,7 @@ export default function WinnerNavbar() {
 
         <div className="winner-telegram-section">
           <a
-            href="https://t.me/+all_yono_games_official"
+            href="https://t.me/yonorummyzip"
             target="_blank"
             rel="noopener noreferrer"
             className="winner-telegram-icon"
