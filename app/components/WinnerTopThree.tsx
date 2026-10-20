@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { GameItem } from '@/lib/games-catalogue';
 
 // Featured Top-3 shown in the highlighted row, in display order:
-// Win Rummy (left) - YN 777 (middle) - Boss Rummy (right)
-const FEATURED_ORDER = ['win-rummy-apk-download', 'yn777', 'boss-rummy'];
+// Rummy Zip (left) - Boss Rummy (middle) - YN 777 (right)
+const FEATURED_ORDER = ['rummy-zip', 'boss-rummy', 'yn777'];
 
 export default function WinnerTopThree({ games }: { games: GameItem[] }) {
   // Select the featured games in FEATURED_ORDER (fallback: isTop flags, then list order)
