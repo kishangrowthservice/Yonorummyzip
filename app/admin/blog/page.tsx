@@ -49,7 +49,7 @@ export default async function AdminBlogDashboardPage() {
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 font-medium mt-1 leading-normal">
-                Manage, draft, edit, AI-generate, and publish blog articles live on All Yono Games 99.
+                Manage, draft, edit, AI-generate, and publish blog articles live on Yono Rummy Zip.
               </p>
             </div>
           </div>

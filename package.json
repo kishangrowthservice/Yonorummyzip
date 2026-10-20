@@ -1,7 +1,7 @@
 {
   "name": "yono-rummy-zip",
   "version": "1.0.0",
-  "description": "Yono Rummy Zip - Official Portal for Yono APK Downloads & Games",
+  "description": "Yono Rummy Zip (YonoRummyZip.com) – Official Portal for Yono Rummy, Yono Games APK Downloads & Games",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

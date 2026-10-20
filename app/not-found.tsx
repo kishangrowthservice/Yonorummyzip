@@ -3,8 +3,8 @@ import WinnerNavbar from '@/app/components/WinnerNavbar';
 import WinnerFooter from '@/app/components/WinnerFooter';
 
 export const metadata = {
-  title: '404 - Page Not Found | All Yono Games 99',
-  description: 'The page or game you are looking for does not exist on All Yono Games 99.',
+  title: '404 - Page Not Found | Yono Rummy Zip',
+  description: 'The page or game you are looking for does not exist on Yono Rummy Zip.',
 };
 
 export default function NotFound() {

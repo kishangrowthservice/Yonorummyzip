@@ -5,8 +5,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Admin Panel — All Yono Games 99',
-  description: 'Manage apps, content and settings for All Yono Games 99',
+  title: 'Admin Panel — Yono Rummy Zip',
+  description: 'Manage apps, content and settings for Yono Rummy Zip',
   robots: 'noindex, nofollow',
 };
 

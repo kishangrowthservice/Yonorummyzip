@@ -6,28 +6,28 @@ import { notFound } from 'next/navigation';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://allyonogames99.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://yonorummyzip.com';
 
 export const metadata: Metadata = {
-  title: 'About Us | All Yono Games 99',
-  description: 'About All Yono Games 99 – Your trusted hub for downloading verified Yono Games, Rummy APKs, and exciting Teen Patti apps.',
+  title: 'About Us | Yono Rummy Zip',
+  description: 'About Yono Rummy Zip – Your trusted hub for downloading verified Yono Games, Rummy APKs, and exciting Teen Patti apps.',
   alternates: {
     canonical: '/about',
   },
   openGraph: {
-    title: 'About Us | All Yono Games 99',
-    description: 'About All Yono Games 99 – Your trusted hub for downloading verified Yono Games.',
+    title: 'About Us | Yono Rummy Zip',
+    description: 'About Yono Rummy Zip – Your trusted hub for downloading verified Yono Games.',
     url: `${SITE_URL}/about`,
-    siteName: 'All Yono Games 99',
+    siteName: 'Yono Rummy Zip',
     locale: 'en_IN',
     type: 'website',
-    images: ['/assets/img/logo.png'],
+    images: ['/assets/img/logo.svg'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Us | All Yono Games 99',
-    description: 'About All Yono Games 99 – Your trusted hub for downloading verified Yono Games.',
-    images: ['/assets/img/logo.png'],
+    title: 'About Us | Yono Rummy Zip',
+    description: 'About Yono Rummy Zip – Your trusted hub for downloading verified Yono Games.',
+    images: ['/assets/img/logo.svg'],
   },
 };
 

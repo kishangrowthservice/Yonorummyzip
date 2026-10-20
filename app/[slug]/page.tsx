@@ -7,11 +7,14 @@ import { renderAppPage, injectAppsIntoListGrid, applyWinnerLayout } from '@/lib/
 import { stripMarkdown } from '@/lib/markdown';
 import { CURRENT_SITE_ID } from '@/lib/supabase';
 import { getPageData } from '@/lib/pages-data';
+import { getStaticGames } from '@/lib/games-catalogue';
+import WinnerNavbar from '@/app/components/WinnerNavbar';
+import WinnerFooter from '@/app/components/WinnerFooter';
 
 export const dynamic = 'force-dynamic';
 export const dynamicParams = true;
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://allyonogames99.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://yonorummyzip.com';
 
 export async function generateStaticParams() {
   try {
@@ -51,7 +54,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         app.meta_description ||
         stripMarkdown(app.short_desc) ||
         `Download ${app.name} APK for Android with ₹${app.signup_bonus ?? 0} welcome bonus.`;
-      const image = app.logo_url || '/assets/img/logo.png';
+      const image = app.logo_url || '/assets/img/logo.svg';
 
       return {
         title,
@@ -63,7 +66,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           title,
           description,
           url: `${SITE_URL}/${slug}`,
-          siteName: 'All Yono Games 99',
+          siteName: 'Yono Rummy Zip',
           locale: 'en_IN',
           type: 'website',
           images: [
@@ -103,12 +106,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       'disclaimer',
     ].includes(slug.toLowerCase());
 
-    const title = data.title || `${slug.toUpperCase()} – All Yono Games 99`;
+    const title = data.title || `${slug.toUpperCase()} – Yono Rummy Zip`;
     const description =
       data.description ||
       (isLegalOrInfo
-        ? `${title} on All Yono Games 99.`
-        : `Download ${slug} APK for Android free bonus and instant UPI cashouts on All Yono Games 99.`);
+        ? `${title} on Yono Rummy Zip.`
+        : `Download ${slug} APK for Android free bonus and instant UPI cashouts on Yono Rummy Zip.`);
 
     return {
       title,
@@ -120,16 +123,54 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         title,
         description,
         url: `${SITE_URL}/${slug}`,
-        siteName: 'All Yono Games 99',
+        siteName: 'Yono Rummy Zip',
         locale: 'en_IN',
         type: 'website',
-        images: ['/assets/img/logo.png'],
+        images: ['/assets/img/logo.svg'],
       },
       twitter: {
         card: 'summary_large_image',
         title,
         description,
-        images: ['/assets/img/logo.png'],
+        images: ['/assets/img/logo.svg'],
+      },
+    };
+  }
+
+  // 3. Fallback to static games catalogue (new catalogue slugs have no pages_data entry)
+  const staticGame = getStaticGames().find(
+    (g) => g.slug.toLowerCase() === slug.toLowerCase()
+  );
+  if (staticGame) {
+    const title = `${staticGame.name} APK Download – Get ₹${staticGame.bonus} Bonus | Yono Rummy Zip`;
+    const description = `Download ${staticGame.name} APK for Android with ₹${staticGame.bonus} welcome bonus and ₹${staticGame.minWithdraw} minimum withdrawal on Yono Rummy Zip (YonoRummyZip.com).`;
+    return {
+      title,
+      description,
+      alternates: {
+        canonical: `/${slug}`,
+      },
+      openGraph: {
+        title,
+        description,
+        url: `${SITE_URL}/${slug}`,
+        siteName: 'Yono Rummy Zip',
+        locale: 'en_IN',
+        type: 'website',
+        images: [
+          {
+            url: staticGame.icon,
+            width: 512,
+            height: 512,
+            alt: `${staticGame.name} Official Logo`,
+          },
+        ],
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title,
+        description,
+        images: [staticGame.icon],
       },
     };
   }
@@ -241,6 +282,54 @@ export default async function SlugPage({ params }: PageProps) {
     );
   }
 
-  // 4. Otherwise, return 404 (handled by app/not-found.tsx)
+  // 4. Fallback to static games catalogue — render a clean landing page
+  //    for catalogue games that have no DB app or pages_data entry yet
+  //    (e.g. share-slots, rummy-zip, jeet-spin, jaiho-play).
+  const staticGame = getStaticGames().find(
+    (g) => g.slug.toLowerCase() === lowerSlug
+  );
+  if (staticGame) {
+    return (
+      <>
+        <WinnerNavbar />
+        <main style={{ flex: 1 }} className="bg-[#f8f9fa]">
+          <div className="winner-container" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: '1rem' }}>
+              <img
+                src={staticGame.icon}
+                alt={`${staticGame.name} Logo`}
+                width={120}
+                height={120}
+                style={{ width: 120, height: 120, maxWidth: '100%', objectFit: 'cover', borderRadius: 24, boxShadow: '0 8px 24px rgba(0,0,0,0.12)' }}
+              />
+              <h1 style={{ fontSize: '1.75rem', fontWeight: 800, margin: 0 }}>{staticGame.name}</h1>
+              <p style={{ color: '#4b5563', margin: 0, maxWidth: 560 }}>
+                Download {staticGame.name} APK for Android on Yono Rummy Zip and claim your welcome bonus with fast UPI withdrawals.
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', justifyContent: 'center' }}>
+                <span className="winner-text-red">🎁 Welcome Bonus ₹{staticGame.bonus}</span>
+                <span className="winner-text-green">🏦 Min Withdraw ₹{staticGame.minWithdraw}</span>
+                {staticGame.rating ? <span>⭐ {staticGame.rating} / 5</span> : null}
+              </div>
+              <a
+                href={staticGame.downloadUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="winner-btn-download-black"
+                style={{ fontSize: '1.05rem', padding: '0.85rem 2.25rem' }}
+                title={`Download ${staticGame.name} APK`}
+              >
+                Download {staticGame.name}
+              </a>
+              <p style={{ fontSize: '0.8rem', color: '#94a3b8', margin: 0 }}>18+ Only. Play responsibly. Real-money gaming involves financial risk.</p>
+            </div>
+          </div>
+        </main>
+        <WinnerFooter />
+      </>
+    );
+  }
+
+  // 5. Otherwise, return 404 (handled by app/not-found.tsx)
   notFound();
 }

@@ -5,7 +5,7 @@ import { supabaseAdmin } from '@/lib/supabase-server';
 import { getAllPosts } from '@/lib/postsStore';
 import { CURRENT_SITE_ID } from '@/lib/supabase';
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://allyonogames99.com';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://yonorummyzip.com';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();

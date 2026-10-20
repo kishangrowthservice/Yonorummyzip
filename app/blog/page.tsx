@@ -10,32 +10,32 @@ import WinnerFooter from '@/app/components/WinnerFooter';
 export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
-  title: 'Blog & Game Guides — All Yono Games 99',
+  title: 'Blog & Game Guides — Yono Rummy Zip',
   description: 'Master all Yono sister apps with pro Rummy tricks, Teen Patti hacks, APK installation guidelines, and instant UPI withdrawal strategies.',
   alternates: {
     canonical: '/blog',
   },
   openGraph: {
-    title: 'Blog & Game Guides — All Yono Games 99',
+    title: 'Blog & Game Guides — Yono Rummy Zip',
     description: 'Master all Yono sister apps with pro Rummy tricks, Teen Patti hacks, and instant cashout tips.',
     url: `${SITE_CONFIG.url}/blog`,
-    siteName: 'All Yono Games 99',
+    siteName: 'Yono Rummy Zip',
     locale: 'en_IN',
     type: 'website',
     images: [
       {
-        url: '/assets/img/logo.png',
+        url: '/assets/img/logo.svg',
         width: 512,
         height: 512,
-        alt: 'All Yono Games 99 Blog',
+        alt: 'Yono Rummy Zip Blog',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blog & Game Guides — All Yono Games 99',
+    title: 'Blog & Game Guides — Yono Rummy Zip',
     description: 'Master all Yono sister apps with pro Rummy tricks, Teen Patti hacks, and instant cashout tips.',
-    images: ['/assets/img/logo.png'],
+    images: ['/assets/img/logo.svg'],
   },
 };
 
@@ -50,10 +50,10 @@ export default async function BlogIndexPage() {
     url: `${SITE_CONFIG.url}/blog`,
     publisher: {
       '@type': 'Organization',
-      name: 'All Yono Games 99',
+      name: 'Yono Rummy Zip',
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_CONFIG.url}/assets/img/logo.png`,
+        url: `${SITE_CONFIG.url}/assets/img/logo.svg`,
       },
     },
   };

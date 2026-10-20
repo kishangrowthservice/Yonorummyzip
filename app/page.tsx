@@ -11,7 +11,7 @@ import { getAllMergedGames } from '@/lib/games-catalogue';
 
 export const dynamic = 'force-dynamic';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://allyonogames99.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://yonorummyzip.com';
 
 export const metadata: Metadata = {
   title: 'YONO Games | Play & Earn Real Rewards – All Yono Games APK',
@@ -25,15 +25,15 @@ export const metadata: Metadata = {
     description:
       'Download all official Yono Game apps in one place with free signup bonus and instant UPI cashouts.',
     url: SITE_URL,
-    siteName: 'All Yono Games 99',
+    siteName: 'Yono Rummy Zip',
     locale: 'en_IN',
     type: 'website',
     images: [
       {
-        url: '/assets/img/logo.png',
+        url: '/assets/img/logo.svg',
         width: 512,
         height: 512,
-        alt: 'All Yono Games Official Logo',
+        alt: 'Yono Rummy Zip Official Logo',
       },
     ],
   },
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: 'YONO Games | Play & Earn Real Rewards – All Yono Games APK',
     description:
       'Download all official Yono Game apps in one place with free signup bonus and instant cashout.',
-    images: ['/assets/img/logo.png'],
+    images: ['/assets/img/logo.svg'],
   },
 };
 
@@ -53,7 +53,7 @@ export default async function HomePage() {
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'All Yono Games 99',
+    name: 'Yono Rummy Zip',
     url: SITE_URL,
     potentialAction: {
       '@type': 'SearchAction',
@@ -74,7 +74,7 @@ export default async function HomePage() {
         name: 'Is the All Yono Games APK safe to download?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Yes, when downloaded from a verified hub like allyonogames99.com. Unverified third-party blogs may host modified or outdated files.',
+          text: 'Yes, when downloaded from a verified hub like yonorummyzip.com. Unverified third-party blogs may host modified or outdated files.',
         },
       },
       {

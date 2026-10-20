@@ -6,28 +6,28 @@ import { notFound } from 'next/navigation';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://allyonogames99.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://yonorummyzip.com';
 
 export const metadata: Metadata = {
-  title: 'Disclaimer | All Yono Games 99',
-  description: 'Read the official Disclaimer for All Yono Games 99. Information regarding game APKs, informational guidance, and 18+ responsible play.',
+  title: 'Disclaimer | Yono Rummy Zip',
+  description: 'Read the official Disclaimer for Yono Rummy Zip. Information regarding game APKs, informational guidance, and 18+ responsible play.',
   alternates: {
     canonical: '/disclaimer',
   },
   openGraph: {
-    title: 'Disclaimer | All Yono Games 99',
-    description: 'Read the official Disclaimer for All Yono Games 99.',
+    title: 'Disclaimer | Yono Rummy Zip',
+    description: 'Read the official Disclaimer for Yono Rummy Zip.',
     url: `${SITE_URL}/disclaimer`,
-    siteName: 'All Yono Games 99',
+    siteName: 'Yono Rummy Zip',
     locale: 'en_IN',
     type: 'website',
-    images: ['/assets/img/logo.png'],
+    images: ['/assets/img/logo.svg'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Disclaimer | All Yono Games 99',
-    description: 'Read the official Disclaimer for All Yono Games 99.',
-    images: ['/assets/img/logo.png'],
+    title: 'Disclaimer | Yono Rummy Zip',
+    description: 'Read the official Disclaimer for Yono Rummy Zip.',
+    images: ['/assets/img/logo.svg'],
   },
 };
 

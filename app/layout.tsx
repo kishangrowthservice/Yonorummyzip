@@ -4,7 +4,7 @@ import ClientScripts from './ClientScripts';
 import { ThemeProvider } from './ThemeProvider';
 import ToasterClient from './components/ToasterClient';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://allyonogames99.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://yonorummyzip.com';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -14,8 +14,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'All Yono Games 99 – Download All Yono Games APK Latest',
-    template: '%s | All Yono Games 99',
+    default: 'Yono Rummy Zip – Download All Yono Games APK Latest',
+    template: '%s | Yono Rummy Zip',
   },
   description:
     'Download all official Yono Game apps in one place. Find verified Yono Games like Rummy, 777 & Slots with free signup bonus and instant 2-minute UPI cashouts.',
@@ -23,33 +23,33 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   icons: {
-    icon: '/assets/img/logo.png',
-    shortcut: '/assets/img/logo.png',
-    apple: '/assets/img/logo.png',
+    icon: '/assets/img/logo.svg',
+    shortcut: '/assets/img/logo.svg',
+    apple: '/assets/img/logo.svg',
   },
   openGraph: {
     type: 'website',
     locale: 'en_IN',
     url: SITE_URL,
-    siteName: 'All Yono Games 99',
-    title: 'All Yono Games 99 – Download All Yono Games APK Latest',
+    siteName: 'Yono Rummy Zip',
+    title: 'Yono Rummy Zip – Download All Yono Games APK Latest',
     description:
       'Download all official Yono Game apps in one place. Find verified Yono Games like Rummy, 777 & Slots with free signup bonus.',
     images: [
       {
-        url: '/assets/img/logo.png',
+        url: '/assets/img/logo.svg',
         width: 512,
         height: 512,
-        alt: 'All Yono Games 99 Logo',
+        alt: 'Yono Rummy Zip Logo',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'All Yono Games 99 – Download All Yono Games APK Latest',
+    title: 'Yono Rummy Zip – Download All Yono Games APK Latest',
     description:
       'Download all official Yono Game apps in one place with free signup bonus and instant cashout.',
-    images: ['/assets/img/logo.png'],
+    images: ['/assets/img/logo.svg'],
   },
   robots: {
     index: true,
@@ -72,7 +72,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="light" data-theme="light" suppressHydrationWarning>
       <head>
-        <link rel="icon" type="image/png" href="/assets/img/logo.png" />
+        <link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg" />
         {/* Enforce Pure Clean White Theme */}
         <script
           dangerouslySetInnerHTML={{

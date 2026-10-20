@@ -7,8 +7,8 @@ export default function WinnerNavbar() {
         <div className="winner-logo-section">
           <Link href="/">
             <img
-              src="/assets/img/logo.png"
-              alt="All Yono Games Logo"
+              src="/assets/img/logo.svg"
+              alt="Yono Rummy Zip Logo"
               width={100}
               height={38}
               className="winner-logo-img"
@@ -17,7 +17,7 @@ export default function WinnerNavbar() {
         </div>
 
         <Link href="/" className="winner-nav-title">
-          AllYonoGames99.com
+          YonoRummyZip.com
         </Link>
 
         <div className="winner-telegram-section">

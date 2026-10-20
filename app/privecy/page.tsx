@@ -7,8 +7,8 @@ export const dynamic = 'force-static';
 export const revalidate = false;
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | All Yono Games 99',
-  description: 'Read the official Privacy Policy of All Yono Games 99.',
+  title: 'Privacy Policy | Yono Rummy Zip',
+  description: 'Read the official Privacy Policy of Yono Rummy Zip.',
   alternates: {
     canonical: '/privecy',
   },

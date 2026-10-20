@@ -7,7 +7,7 @@ export default function WinnerFooter() {
         <div className="winner-footer-grid">
           <div>
             <Link href="/" className="winner-footer-logo">
-              AllYonoGames99.com
+              YonoRummyZip.com
             </Link>
             <p className="winner-footer-desc">
               Your trusted hub for downloading verified Yono Games, Rummy APKs, and exciting Teen Patti apps with instant UPI cashouts and exclusive signup bonuses.
@@ -37,7 +37,7 @@ export default function WinnerFooter() {
         </div>
 
         <div className="winner-footer-bottom">
-          <p>© {new Date().getFullYear()} AllYonoGames99.com – All Rights Reserved. Not affiliated with SBI.</p>
+          <p>© {new Date().getFullYear()} YonoRummyZip.com – All Rights Reserved. Not affiliated with SBI.</p>
         </div>
       </div>
     </footer>

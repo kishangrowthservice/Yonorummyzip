@@ -7,7 +7,7 @@ export default function Loading() {
         <Loader2 className="w-6 h-6 animate-spin" />
       </div>
       <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-        Loading All Yono Games 99...
+        Loading Yono Rummy Zip...
       </p>
     </div>
   );

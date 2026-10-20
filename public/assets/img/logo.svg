@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Yono Rummy Zip Logo">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#132a5e"/>
+      <stop offset="55%" stop-color="#0a1a3d"/>
+      <stop offset="100%" stop-color="#050d22"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe27a"/>
+      <stop offset="55%" stop-color="#f5b921"/>
+      <stop offset="100%" stop-color="#d98a06"/>
+    </linearGradient>
+    <linearGradient id="emerald" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+    <clipPath id="clip"><rect x="8" y="8" width="496" height="496" rx="104"/></clipPath>
+  </defs>
+
+  <!-- Premium navy rounded-square base -->
+  <rect x="8" y="8" width="496" height="496" rx="104" fill="url(#bg)"/>
+  <rect x="8" y="8" width="496" height="496" rx="104" fill="none" stroke="url(#gold)" stroke-width="10"/>
+  <g clip-path="url(#clip)">
+    <circle cx="452" cy="430" r="150" fill="#10b981" opacity="0.16"/>
+    <circle cx="52" cy="58" r="110" fill="#f5b921" opacity="0.10"/>
+  </g>
+
+  <!-- Playing card motif (top-left, behind monogram) -->
+  <g transform="rotate(-14 96 118)">
+    <rect x="52" y="52" width="88" height="126" rx="12" fill="#f8fafc"/>
+    <text x="70" y="92" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800" fill="#b91c1c">A</text>
+    <text x="66" y="128" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="#b91c1c">♥</text>
+  </g>
+
+  <!-- Gold casino chip motif (top-right) -->
+  <g>
+    <circle cx="414" cy="104" r="46" fill="url(#gold)"/>
+    <circle cx="414" cy="104" r="34" fill="none" stroke="#0a1a3d" stroke-width="5" stroke-dasharray="10 7"/>
+    <circle cx="414" cy="104" r="17" fill="#0a1a3d"/>
+    <rect x="406" y="96" width="16" height="16" rx="2" transform="rotate(45 414 104)" fill="#ffe27a"/>
+  </g>
+
+  <!-- Monogram -->
+  <text x="256" y="268" font-family="Arial, Helvetica, sans-serif" font-size="118" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="1">Y<tspan fill="url(#gold)">R</tspan>Z</text>
+
+  <!-- Emerald divider -->
+  <rect x="116" y="306" width="280" height="8" rx="4" fill="url(#emerald)"/>
+
+  <!-- Brand name -->
+  <text x="256" y="368" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="800" fill="url(#gold)" text-anchor="middle" letter-spacing="3">YONO RUMMY</text>
+  <text x="256" y="422" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="14">ZIP</text>
+  <text x="256" y="468" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700" fill="#a7f3d0" text-anchor="middle" letter-spacing="3">YONORUMMYZIP.COM</text>
+</svg>

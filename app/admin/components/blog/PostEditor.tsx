@@ -719,11 +719,11 @@ export function PostEditor({ initialData }: PostEditorProps) {
                   Y
                 </span>
                 <span className="text-slate-600 truncate">
-                  allyonogames99.com › blog › {slugValue || 'post-slug'}
+                  yonorummyzip.com › blog › {slugValue || 'post-slug'}
                 </span>
               </div>
               <h4 className="text-sm sm:text-base font-semibold text-[#1a0dab] hover:underline line-clamp-1 cursor-pointer">
-                {titleValue || 'Article Title — All Yono Games 99'}
+                {titleValue || 'Article Title — Yono Rummy Zip'}
               </h4>
               <p className="text-xs text-slate-700 line-clamp-2 leading-relaxed">
                 {metaDescriptionValue ||
