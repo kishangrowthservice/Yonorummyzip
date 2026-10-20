@@ -9,8 +9,8 @@ export default function WinnerNavbar() {
             <img
               src="/assets/img/logo.svg"
               alt="Yono Rummy Zip Logo"
-              width={54}
-              height={54}
+              width={76}
+              height={76}
               className="winner-logo-img"
             />
           </Link>

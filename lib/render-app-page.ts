@@ -25,7 +25,7 @@ export function getLayoutSnippets() {
       <div class="winner-nav-inner">
         <div class="winner-logo-section">
           <a href="/">
-            <img src="/assets/img/logo.svg" alt="Yono Rummy Zip Logo" width="54" height="54" class="winner-logo-img">
+            <img src="/assets/img/logo.svg" alt="Yono Rummy Zip Logo" width="76" height="76" class="winner-logo-img">
           </a>
         </div>
         <a href="/" class="winner-nav-title">YonoRummyZip.com</a>
