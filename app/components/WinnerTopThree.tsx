@@ -1,9 +1,16 @@
 import Link from 'next/link';
 import { GameItem } from '@/lib/games-catalogue';
 
+// Featured Top-3 shown in the highlighted row, in display order:
+// Win Rummy (left) - YN 777 (middle) - Boss Rummy (right)
+const FEATURED_ORDER = ['win-rummy-apk-download', 'yn777', 'boss-rummy'];
+
 export default function WinnerTopThree({ games }: { games: GameItem[] }) {
-  // Select 3 top featured games (or fallback to top 3)
-  const topThree = games.filter(g => g.isTop).slice(0, 3);
+  // Select the featured games in FEATURED_ORDER (fallback: isTop flags, then list order)
+  const featured = FEATURED_ORDER.map((slug) => games.find((g) => g.slug === slug)).filter(
+    (g): g is GameItem => Boolean(g)
+  );
+  const topThree = featured.length === 3 ? featured : games.filter(g => g.isTop).slice(0, 3);
   const displayThree = topThree.length === 3 ? topThree : games.slice(0, 3);
 
   if (displayThree.length === 0) return null;
