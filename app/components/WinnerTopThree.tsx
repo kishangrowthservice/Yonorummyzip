@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { GameItem } from '@/lib/games-catalogue';
 
 // Featured Top-3 shown in the highlighted row, in display order:
-// Rummy Zip (left) - Boss Rummy (middle) - YN 777 (right)
+// Zip Rummy (left) - Boss Rummy (middle) - YN 777 (right)
 const FEATURED_ORDER = ['rummy-zip', 'boss-rummy', 'yn777'];
 
 export default function WinnerTopThree({ games }: { games: GameItem[] }) {
