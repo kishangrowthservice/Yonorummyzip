@@ -7,7 +7,6 @@ const nextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: '**.supabase.co' },
       { protocol: 'https', hostname: '**.supabase.in' },
-      { protocol: 'https', hostname: 'allyonogames99.com' },
       { protocol: 'https', hostname: 'yonorummyzip.com' },
       { protocol: 'https', hostname: '**.vercel.app' },
       { protocol: 'https', hostname: '**.cloudinary.com' },
