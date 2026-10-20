@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/assets/img/logo.svg',
+        url: '/assets/img/logo-rummyzip.svg',
         width: 512,
         height: 512,
         alt: 'Yono Rummy Zip Official Logo',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     title: 'YONO Games | Play & Earn Real Rewards – All Yono Games APK',
     description:
       'Download all official Yono Game apps in one place with free signup bonus and instant cashout.',
-    images: ['/assets/img/logo.svg'],
+    images: ['/assets/img/logo-rummyzip.svg'],
   },
 };
 

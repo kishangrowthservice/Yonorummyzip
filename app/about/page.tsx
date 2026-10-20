@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     siteName: 'Yono Rummy Zip',
     locale: 'en_IN',
     type: 'website',
-    images: ['/assets/img/logo.svg'],
+    images: ['/assets/img/logo-rummyzip.svg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'About Us | Yono Rummy Zip',
     description: 'About Yono Rummy Zip – Your trusted hub for downloading verified Yono Games.',
-    images: ['/assets/img/logo.svg'],
+    images: ['/assets/img/logo-rummyzip.svg'],
   },
 };
 

@@ -25,7 +25,7 @@ export function getLayoutSnippets() {
       <div class="winner-nav-inner">
         <div class="winner-logo-section">
           <a href="/">
-            <img src="/assets/img/logo.svg" alt="Yono Rummy Zip Logo" width="76" height="76" class="winner-logo-img">
+            <img src="/assets/img/logo-rummyzip.svg" alt="Yono Rummy Zip Logo" width="76" height="76" class="winner-logo-img">
           </a>
         </div>
         <a href="/" class="winner-nav-title">YonoRummyZip.com</a>
@@ -110,7 +110,7 @@ export function renderAppPage(app: AppRecord): string {
   const bonus = app.signup_bonus ?? 0;
   const minW = app.min_withdrawal ?? 100;
   const rating = (app.rating || 4.5).toFixed(1);
-  const logo = app.logo_url || '/assets/img/logo.svg';
+  const logo = app.logo_url || '/assets/img/logo-rummyzip.svg';
   const rawDownloadUrl = app.download_url || '#';
   const downloadUrl = resolveDownloadUrl(rawDownloadUrl, app.slug);
   const category = escapeHtml((app.category || 'yono games').toUpperCase());
@@ -295,7 +295,7 @@ export function injectAppsIntoHomePage(originalHtml: string, apps: AppRecord[]):
     <div class="col-lg-4 col-md-6 col-12 game-item" data-title="${escapeHtml(app.name)}">
       <div class="game-list-card">
         <div class="game-rank" style="background: linear-gradient(135deg, #6366f1, #a855f7); color: white; font-weight: bold;">NEW</div>
-        <img src="${app.logo_url || '/assets/img/logo.svg'}" alt="${escapeHtml(app.name)} Logo" class="game-list-logo" style="object-fit: cover; border-radius: 18px;">
+        <img src="${app.logo_url || '/assets/img/logo-rummyzip.svg'}" alt="${escapeHtml(app.name)} Logo" class="game-list-logo" style="object-fit: cover; border-radius: 18px;">
         <div class="game-list-content">
           <h4 class="game-list-title text-truncate">
             <a href="/${app.slug}" style="color: inherit; text-decoration: none;" title="Download ${escapeHtml(app.name)} APK">
@@ -343,7 +343,7 @@ export function injectAppsIntoListGrid(originalHtml: string, apps: AppRecord[]):
       (app) => `
     <div class="col-lg-3 col-md-6 col-6 game-item" data-title="${escapeHtml(app.name)}">
       <div class="game-grid-card">
-        <img src="${app.logo_url || '/assets/img/logo.svg'}" alt="${escapeHtml(app.name)} logo" class="game-grid-logo" style="object-fit: cover; border-radius: 18px;">
+        <img src="${app.logo_url || '/assets/img/logo-rummyzip.svg'}" alt="${escapeHtml(app.name)} logo" class="game-grid-logo" style="object-fit: cover; border-radius: 18px;">
         <h4 class="game-grid-title text-truncate">${escapeHtml(app.name)}</h4>
         <div class="game-info">
           <div class="game-info-row">

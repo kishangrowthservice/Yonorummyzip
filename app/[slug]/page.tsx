@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         app.meta_description ||
         stripMarkdown(app.short_desc) ||
         `Download ${app.name} APK for Android with ₹${app.signup_bonus ?? 0} welcome bonus.`;
-      const image = app.logo_url || '/assets/img/logo.svg';
+      const image = app.logo_url || '/assets/img/logo-rummyzip.svg';
 
       return {
         title,
@@ -126,13 +126,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         siteName: 'Yono Rummy Zip',
         locale: 'en_IN',
         type: 'website',
-        images: ['/assets/img/logo.svg'],
+        images: ['/assets/img/logo-rummyzip.svg'],
       },
       twitter: {
         card: 'summary_large_image',
         title,
         description,
-        images: ['/assets/img/logo.svg'],
+        images: ['/assets/img/logo-rummyzip.svg'],
       },
     };
   }

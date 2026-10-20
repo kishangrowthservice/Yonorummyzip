@@ -21,13 +21,13 @@ export const metadata: Metadata = {
     siteName: 'Yono Rummy Zip',
     locale: 'en_IN',
     type: 'website',
-    images: ['/assets/img/logo.svg'],
+    images: ['/assets/img/logo-rummyzip.svg'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Contact Us | Yono Rummy Zip',
     description: 'Contact Yono Rummy Zip.',
-    images: ['/assets/img/logo.svg'],
+    images: ['/assets/img/logo-rummyzip.svg'],
   },
 };
 

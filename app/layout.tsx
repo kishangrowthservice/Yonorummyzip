@@ -23,9 +23,9 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   icons: {
-    icon: '/assets/img/logo.svg',
-    shortcut: '/assets/img/logo.svg',
-    apple: '/assets/img/logo.svg',
+    icon: '/assets/img/logo-rummyzip.svg',
+    shortcut: '/assets/img/logo-rummyzip.svg',
+    apple: '/assets/img/logo-rummyzip.svg',
   },
   openGraph: {
     type: 'website',
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
       'Download all official Yono Game apps in one place. Find verified Yono Games like Rummy, 777 & Slots with free signup bonus.',
     images: [
       {
-        url: '/assets/img/logo.svg',
+        url: '/assets/img/logo-rummyzip.svg',
         width: 512,
         height: 512,
         alt: 'Yono Rummy Zip Logo',
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     title: 'Yono Rummy Zip – Download All Yono Games APK Latest',
     description:
       'Download all official Yono Game apps in one place with free signup bonus and instant cashout.',
-    images: ['/assets/img/logo.svg'],
+    images: ['/assets/img/logo-rummyzip.svg'],
   },
   robots: {
     index: true,
@@ -72,7 +72,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="light" data-theme="light" suppressHydrationWarning>
       <head>
-        <link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg" />
+        <link rel="icon" type="image/svg+xml" href="/assets/img/logo-rummyzip.svg" />
         {/* Enforce Pure Clean White Theme */}
         <script
           dangerouslySetInnerHTML={{
@@ -116,7 +116,7 @@ export default function RootLayout({
           onLoad="this.media='all'"
         />
         <link rel="stylesheet" href="/assets/css/style.css" />
-        <link rel="stylesheet" href="/assets/css/winner-theme.css" />
+        <link rel="stylesheet" href="/assets/css/winner-theme-v2.css" />
         <style
           dangerouslySetInnerHTML={{
             __html: `

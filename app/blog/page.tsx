@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/assets/img/logo.svg',
+        url: '/assets/img/logo-rummyzip.svg',
         width: 512,
         height: 512,
         alt: 'Yono Rummy Zip Blog',
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Blog & Game Guides — Yono Rummy Zip',
     description: 'Master all Yono sister apps with pro Rummy tricks, Teen Patti hacks, and instant cashout tips.',
-    images: ['/assets/img/logo.svg'],
+    images: ['/assets/img/logo-rummyzip.svg'],
   },
 };
 
@@ -53,7 +53,7 @@ export default async function BlogIndexPage() {
       name: 'Yono Rummy Zip',
       logo: {
         '@type': 'ImageObject',
-        url: `${SITE_CONFIG.url}/assets/img/logo.svg`,
+        url: `${SITE_CONFIG.url}/assets/img/logo-rummyzip.svg`,
       },
     },
   };

@@ -56,7 +56,7 @@ export async function getAllMergedGames(): Promise<GameItem[]> {
           id: app.id,
           slug: app.slug,
           name: app.name,
-          icon: app.logo_url || '/assets/img/logo.svg',
+          icon: app.logo_url || '/assets/img/logo-rummyzip.svg',
           bonus: app.signup_bonus ?? 51,
           minWithdraw: app.min_withdrawal ?? 100,
           downloadUrl: cleanUrl,
