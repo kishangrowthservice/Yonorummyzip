@@ -13,7 +13,7 @@ const gamesData = [
   {"title":"Spin Crush","slug":"/spin-crush","logo":"https://spincrush69.com/logo.png","bonus":"₹50"},
   {"title":"YN 777","slug":"/yn777","logo":"NDrAL9zT48pXlc7.jpeg","bonus":"₹13"},
   {"title":"Share Slots","slug":"/share-slots","logo":"https://share677.com/logo.png","bonus":"₹51"},
-  {"title":"Zip Rummy","slug":"/rummy-zip","logo":"https://rummyzip3.com/logo.png","bonus":"₹51"},
+  {"title":"Rummy Zip","slug":"/rummy-zip","logo":"https://rummyzip3.com/logo.png","bonus":"₹51"},
   {"title":"Jeet Spin","slug":"/jeet-spin","logo":"https://www.jeetspin20.com/logo.png","bonus":"₹51"},
   {"title":"Jaiho Play","slug":"/jaiho-play","logo":"https://jaihorefer10.com/logo.png","bonus":"₹51"}
 ];
