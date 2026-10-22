@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from 'next';
+import { SITE_URL } from '@/lib/site-url';
 import './globals.css';
 import ClientScripts from './ClientScripts';
 import { ThemeProvider } from './ThemeProvider';
 import ToasterClient from './components/ToasterClient';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://yonorummyzip.com';
 
 export const viewport: Viewport = {
   width: 'device-width',

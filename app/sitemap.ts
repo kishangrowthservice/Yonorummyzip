@@ -1,11 +1,12 @@
 import type { MetadataRoute } from 'next';
+import { SITE_URL } from '@/lib/site-url';
 import fs from 'fs';
 import path from 'path';
 import { supabaseAdmin } from '@/lib/supabase-server';
 import { getAllPosts } from '@/lib/postsStore';
 import { CURRENT_SITE_ID } from '@/lib/supabase';
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://yonorummyzip.com';
+const BASE_URL = SITE_URL;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();

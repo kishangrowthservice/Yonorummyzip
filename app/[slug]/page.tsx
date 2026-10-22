@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { SITE_URL } from '@/lib/site-url';
 import path from 'path';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
@@ -14,7 +15,6 @@ import WinnerFooter from '@/app/components/WinnerFooter';
 export const dynamic = 'force-dynamic';
 export const dynamicParams = true;
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://yonorummyzip.com';
 
 export async function generateStaticParams() {
   try {

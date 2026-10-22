@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SITE_URL } from '@/lib/site-url';
 import { getPageData } from '@/lib/pages-data';
 import { applyWinnerLayout } from '@/lib/render-app-page';
 import { notFound } from 'next/navigation';
@@ -6,7 +7,6 @@ import { notFound } from 'next/navigation';
 export const dynamic = 'force-static';
 export const revalidate = false;
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://yonorummyzip.com';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Yono Rummy Zip',

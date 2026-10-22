@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { SITE_URL } from '@/lib/site-url';
 import WinnerNavbar from './components/WinnerNavbar';
 import WinnerLatestMarquee from './components/WinnerLatestMarquee';
 import WinnerTopThree from './components/WinnerTopThree';
@@ -11,7 +12,6 @@ import { getAllMergedGames } from '@/lib/games-catalogue';
 
 export const dynamic = 'force-dynamic';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://yonorummyzip.com';
 
 export const metadata: Metadata = {
   title: 'YONO Games | Play & Earn Real Rewards – All Yono Games APK',
