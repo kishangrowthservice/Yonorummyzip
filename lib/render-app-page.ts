@@ -255,11 +255,14 @@ export function renderAppPage(app: AppRecord): string {
         </div>
 
         <!-- About Section -->
-        <div>
-          <h2 class="text-base sm:text-lg font-bold text-slate-900 mb-3">
-            About ${safeName} App
-          </h2>
-          <div class="text-xs sm:text-sm text-slate-600 leading-relaxed space-y-3">
+        <div class="pt-1">
+          <div class="flex items-center gap-2 mb-4 pb-2 border-b border-slate-100">
+            <span class="w-1.5 h-5 rounded-full bg-indigo-600 inline-block"></span>
+            <h2 class="text-base sm:text-lg font-extrabold text-slate-900">
+              About ${safeName} App
+            </h2>
+          </div>
+          <div class="app-description-content text-slate-700 leading-relaxed">
             ${formattedDesc}
           </div>
         </div>
