@@ -1,10 +1,9 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site-url';
-import fs from 'fs';
-import path from 'path';
 import { supabaseAdmin } from '@/lib/supabase-server';
 import { getAllPosts } from '@/lib/postsStore';
 import { CURRENT_SITE_ID } from '@/lib/supabase';
+import { getStaticGames } from '@/lib/games-catalogue';
 
 const BASE_URL = SITE_URL;
 
@@ -34,24 +33,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }
   );
 
-  // 2. Dynamic Slugs from all_slugs.json
+  // 2. Standard informational & legal pages
+  const corePages = ['about', 'contact', 'privacy-policy', 'terms', 'disclaimer'];
+  corePages.forEach((slug) => {
+    sitemapEntries.push({
+      url: `${BASE_URL}/${slug}`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.5,
+    });
+  });
+
   const knownSlugs = new Set<string>();
+
+  // 3. Static Catalogue Apps
   try {
-    const slugsPath = path.join(process.cwd(), 'app', 'all_slugs.json');
-    if (fs.existsSync(slugsPath)) {
-      const raw = fs.readFileSync(slugsPath, 'utf8');
-      const staticSlugs: string[] = JSON.parse(raw);
-      for (const slug of staticSlugs) {
-        if (slug && !slug.includes('/') && slug !== 'index' && slug !== 'yono-games-list') {
-          knownSlugs.add(slug);
-        }
+    const staticGames = getStaticGames();
+    for (const g of staticGames) {
+      if (g.slug) {
+        knownSlugs.add(g.slug);
       }
     }
   } catch (err) {
-    console.error('[sitemap] Failed reading static slugs:', err);
+    console.error('[sitemap] Failed fetching static games:', err);
   }
 
-  // 3. Dynamic Apps from Supabase
+  // 4. Dynamic Apps from Supabase
   try {
     const { data: dbApps } = await supabaseAdmin
       .from('apps')
@@ -80,9 +87,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   });
 
-  // 4. Dynamic Blog Posts (isolated per site domain)
+  // 5. Dynamic Blog Posts (isolated per site domain)
   try {
-    const siteDomain = process.env.SITE_DOMAIN || 'allyonogames99.com';
+    const siteDomain = process.env.SITE_DOMAIN || 'yonorummyzip.com';
     const posts = await getAllPosts('published', false, siteDomain);
     for (const post of posts) {
       if (post.slug) {

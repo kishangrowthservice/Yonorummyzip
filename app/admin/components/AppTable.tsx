@@ -107,6 +107,13 @@ export default function AppTable({
                             src={app.logo_url}
                             alt={app.name}
                             className="w-full h-full object-cover"
+                            onError={(e) => {
+                              const target = e.currentTarget;
+                              if (!target.dataset.triedFallback) {
+                                target.dataset.triedFallback = 'true';
+                                target.src = '/assets/img/logo.png';
+                              }
+                            }}
                           />
                         ) : (
                           <RiGamepadLine size={20} className="text-slate-400" />
@@ -259,6 +266,13 @@ export default function AppTable({
                         src={app.logo_url}
                         alt={app.name}
                         className="w-full h-full object-cover"
+                        onError={(e) => {
+                          const target = e.currentTarget;
+                          if (!target.dataset.triedFallback) {
+                            target.dataset.triedFallback = 'true';
+                            target.src = '/assets/img/logo.png';
+                          }
+                        }}
                       />
                     ) : (
                       <RiGamepadLine size={22} className="text-slate-400" />

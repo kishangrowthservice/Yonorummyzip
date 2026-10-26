@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { GameItem } from '@/lib/games-catalogue';
 
@@ -11,9 +13,9 @@ export default function WinnerTopThree({ games }: { games: GameItem[] }) {
     (g): g is GameItem => Boolean(g)
   );
   const topThree = featured.length === 3 ? featured : games.filter(g => g.isTop).slice(0, 3);
-  const displayThree = topThree.length === 3 ? topThree : games.slice(0, 3);
+  const displayThree = topThree.length > 0 ? topThree : games.slice(0, 3);
 
-  if (displayThree.length === 0) return null;
+  if (!displayThree || displayThree.length === 0) return null;
 
   return (
     <section className="winner-top-three-section">
@@ -26,12 +28,19 @@ export default function WinnerTopThree({ games }: { games: GameItem[] }) {
           >
             <div className="winner-top-three-icon-wrap">
               <img
-                src={game.icon}
+                src={game.icon || '/assets/img/logo.png'}
                 alt={game.name}
                 width={150}
                 height={150}
                 loading="lazy"
                 className="winner-top-three-icon"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (!target.dataset.triedFallback) {
+                    target.dataset.triedFallback = 'true';
+                    target.src = '/assets/img/logo.png';
+                  }
+                }}
               />
             </div>
 

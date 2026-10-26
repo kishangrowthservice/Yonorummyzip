@@ -40,6 +40,20 @@ const nextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        source: '/bossrummy',
+        destination: '/boss-rummy',
+        permanent: true,
+      },
+      {
+        source: '/yn-777',
+        destination: '/yn777',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

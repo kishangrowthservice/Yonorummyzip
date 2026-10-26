@@ -527,6 +527,13 @@ export default function AppFormModal({ app, onSave, onClose }: Props) {
                         src={form.logo_url}
                         alt="App Logo"
                         className="w-12 h-12 rounded-xl object-cover border border-slate-200 "
+                        onError={(e) => {
+                          const target = e.currentTarget;
+                          if (!target.dataset.triedFallback) {
+                            target.dataset.triedFallback = 'true';
+                            target.src = '/assets/img/logo.png';
+                          }
+                        }}
                       />
                       <div>
                         <div className="text-xs font-bold text-slate-900 ">
@@ -595,6 +602,9 @@ export default function AppFormModal({ app, onSave, onClose }: Props) {
                         src={form.banner_url}
                         alt="Banner"
                         className="w-16 h-10 rounded-lg object-cover border border-slate-200 "
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                        }}
                       />
                       <div>
                         <div className="text-xs font-bold text-slate-900 ">
@@ -680,6 +690,9 @@ export default function AppFormModal({ app, onSave, onClose }: Props) {
                           src={url}
                           alt={`Screenshot ${idx + 1}`}
                           className="w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                          }}
                         />
                         <button
                           type="button"

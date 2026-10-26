@@ -34,7 +34,6 @@ export function getStaticGames(): GameItem[] {
 }
 
 export async function getAllMergedGames(): Promise<GameItem[]> {
-  const staticList = getStaticGames();
   const result: GameItem[] = [];
   const seenSlugs = new Set<string>();
 
@@ -69,7 +68,8 @@ export async function getAllMergedGames(): Promise<GameItem[]> {
     console.error('Error fetching DB apps:', err);
   }
 
-  // 2. Append catalogue games that aren't already included
+  // 2. Append static catalogue games that are not already in DB
+  const staticList = getStaticGames();
   for (const game of staticList) {
     if (!seenSlugs.has(game.slug)) {
       seenSlugs.add(game.slug);

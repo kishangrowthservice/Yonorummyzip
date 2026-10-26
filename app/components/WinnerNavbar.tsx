@@ -1,6 +1,10 @@
+'use client';
+
 import Link from 'next/link';
 
 export default function WinnerNavbar() {
+  const siteDomain = process.env.NEXT_PUBLIC_SITE_DOMAIN || 'yonorummyzip.com';
+
   return (
     <nav className="winner-navbar">
       <div className="winner-nav-inner">
@@ -12,12 +16,21 @@ export default function WinnerNavbar() {
               width={76}
               height={76}
               className="winner-logo-img"
+              onError={(e) => {
+                const target = e.currentTarget;
+                if (!target.dataset.triedFallback) {
+                  target.dataset.triedFallback = 'true';
+                  target.src = '/assets/img/logo.png';
+                } else if (target.src.endsWith('/logo.png')) {
+                  target.src = '/assets/img/logo.webp';
+                }
+              }}
             />
           </Link>
         </div>
 
         <Link href="/" className="winner-nav-title">
-          YonoRummyZip.com
+          {siteDomain}
         </Link>
 
         <div className="winner-telegram-section">

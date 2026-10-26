@@ -28,7 +28,9 @@ Thumbs.db
 
 # Raw assets / screenshots
 /new_pages_raw
-*.png
+test_*.png
+vercel_*.png
+local_*.png
 scratch/
 
 .vercel

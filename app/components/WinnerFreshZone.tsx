@@ -1,3 +1,5 @@
+'use client';
+
 import Link from 'next/link';
 import { GameItem } from '@/lib/games-catalogue';
 
@@ -6,7 +8,10 @@ export default function WinnerFreshZone({ games }: { games: GameItem[] }) {
 
   // Pick top bonus games
   const freshPicks = games.slice(0, 10);
-  const trackGames = [...freshPicks, ...freshPicks];
+  let trackGames = [...freshPicks, ...freshPicks];
+  if (trackGames.length < 8) {
+    trackGames = [...trackGames, ...trackGames];
+  }
 
   return (
     <section className="winner-fresh-zone">
@@ -58,12 +63,19 @@ export default function WinnerFreshZone({ games }: { games: GameItem[] }) {
                 <div className="winner-fresh-icon-wrap">
                   <div className="winner-new-sash">NEW</div>
                   <img
-                    src={game.icon}
+                    src={game.icon || '/assets/img/logo.png'}
                     alt={game.name}
                     width={68}
                     height={68}
                     loading="lazy"
                     className="winner-fresh-icon"
+                    onError={(e) => {
+                      const target = e.currentTarget;
+                      if (!target.dataset.triedFallback) {
+                        target.dataset.triedFallback = 'true';
+                        target.src = '/assets/img/logo.png';
+                      }
+                    }}
                   />
                 </div>
               </div>

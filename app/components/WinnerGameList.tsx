@@ -1,8 +1,32 @@
+'use client';
+
 import Link from 'next/link';
 import { GameItem } from '@/lib/games-catalogue';
 
 export default function WinnerGameList({ games }: { games: GameItem[] }) {
-  if (!games || games.length === 0) return null;
+  if (!games || games.length === 0) {
+    return (
+      <section className="winner-list-section py-8 text-center">
+        <div className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm max-w-md mx-auto">
+          <div className="w-16 h-16 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center mx-auto mb-4 text-2xl">
+            🎮
+          </div>
+          <h3 className="text-lg font-bold text-slate-900 mb-2">New Games Dropping Soon!</h3>
+          <p className="text-xs text-slate-500 mb-4">
+            Stay tuned! Fresh verified Yono APKs are being added by the admin.
+          </p>
+          <a
+            href="https://t.me/yonorummyzip"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold text-white bg-gradient-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 shadow-md transition-all"
+          >
+            Join Official Telegram
+          </a>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section className="winner-list-section">
@@ -11,12 +35,19 @@ export default function WinnerGameList({ games }: { games: GameItem[] }) {
           <div key={`list-${game.slug}`} className="winner-list-item">
             <Link href={`/${game.slug}`} className="winner-list-icon-wrap">
               <img
-                src={game.icon}
+                src={game.icon || '/assets/img/logo.png'}
                 alt={game.name}
                 width={70}
                 height={70}
                 loading="lazy"
                 className="winner-list-icon"
+                onError={(e) => {
+                  const target = e.currentTarget;
+                  if (!target.dataset.triedFallback) {
+                    target.dataset.triedFallback = 'true';
+                    target.src = '/assets/img/logo.png';
+                  }
+                }}
               />
             </Link>
 

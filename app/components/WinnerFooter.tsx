@@ -1,16 +1,21 @@
+'use client';
+
 import Link from 'next/link';
 
 export default function WinnerFooter() {
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'Yono Rummy Zip';
+  const siteDomain = process.env.NEXT_PUBLIC_SITE_DOMAIN || 'yonorummyzip.com';
+
   return (
     <footer className="winner-footer">
       <div className="winner-container">
         <div className="winner-footer-grid">
           <div>
             <Link href="/" className="winner-footer-logo">
-              YonoRummyZip.com
+              {siteDomain}
             </Link>
             <p className="winner-footer-desc">
-              Your trusted hub for downloading verified Yono Games, Rummy APKs, and exciting Teen Patti apps with instant UPI cashouts and exclusive signup bonuses.
+              Your official portal for downloading verified {siteName} APK, Rummy apps, and exciting card games with instant UPI cashouts and exclusive signup bonuses.
             </p>
           </div>
 
@@ -37,7 +42,7 @@ export default function WinnerFooter() {
         </div>
 
         <div className="winner-footer-bottom">
-          <p>© {new Date().getFullYear()} YonoRummyZip.com – All Rights Reserved. Not affiliated with SBI.</p>
+          <p>© {new Date().getFullYear()} {siteDomain} – All Rights Reserved. Not affiliated with SBI.</p>
         </div>
       </div>
     </footer>

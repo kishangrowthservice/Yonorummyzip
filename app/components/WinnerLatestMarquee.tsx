@@ -1,12 +1,17 @@
+'use client';
+
 import Link from 'next/link';
 import { GameItem } from '@/lib/games-catalogue';
 
 export default function WinnerLatestMarquee({ games }: { games: GameItem[] }) {
   if (!games || games.length === 0) return null;
 
-  // Take first 15 games and duplicate list for seamless infinite loop
+  // Take first 15 games and duplicate list for seamless infinite loop (repeat more if few items)
   const displayGames = games.slice(0, 15);
-  const trackGames = [...displayGames, ...displayGames];
+  let trackGames = [...displayGames, ...displayGames];
+  if (trackGames.length < 8) {
+    trackGames = [...trackGames, ...trackGames];
+  }
 
   return (
     <section className="winner-latest-section">
@@ -20,12 +25,19 @@ export default function WinnerLatestMarquee({ games }: { games: GameItem[] }) {
             >
               <div className="winner-latest-icon-wrap">
                 <img
-                  src={game.icon}
+                  src={game.icon || '/assets/img/logo.png'}
                   alt={game.name}
                   width={130}
                   height={130}
                   loading="lazy"
                   className="winner-latest-icon"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    if (!target.dataset.triedFallback) {
+                      target.dataset.triedFallback = 'true';
+                      target.src = '/assets/img/logo.png';
+                    }
+                  }}
                 />
               </div>
 

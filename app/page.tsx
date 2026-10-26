@@ -12,20 +12,21 @@ import { getAllMergedGames } from '@/lib/games-catalogue';
 
 export const dynamic = 'force-dynamic';
 
+const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME || 'Yono Rummy Zip';
 
 export const metadata: Metadata = {
-  title: 'YONO Games | Play & Earn Real Rewards – All Yono Games APK',
+  title: `${SITE_NAME} | Play & Earn Real Rewards – Official APK Portal`,
   description:
-    'Download top online earning games and start winning real rewards today. Experience premium gaming with verified Yono Rummy, Teen Patti & 777 APKs with instant UPI withdrawals.',
+    `Download official ${SITE_NAME} APK and start winning real rewards today. Experience premium gaming with verified Rummy, Teen Patti & 777 APKs with instant UPI withdrawals.`,
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'YONO Games | Play & Earn Real Rewards – All Yono Games APK',
+    title: `${SITE_NAME} | Play & Earn Real Rewards – Official APK Portal`,
     description:
-      'Download all official Yono Game apps in one place with free signup bonus and instant UPI cashouts.',
+      `Download official ${SITE_NAME} APK in one place with free signup bonus and instant UPI cashouts.`,
     url: SITE_URL,
-    siteName: 'Yono Rummy Zip',
+    siteName: SITE_NAME,
     locale: 'en_IN',
     type: 'website',
     images: [
@@ -33,15 +34,15 @@ export const metadata: Metadata = {
         url: '/assets/img/logo-rummyzip.svg',
         width: 512,
         height: 512,
-        alt: 'Yono Rummy Zip Official Logo',
+        alt: `${SITE_NAME} Official Logo`,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'YONO Games | Play & Earn Real Rewards – All Yono Games APK',
+    title: `${SITE_NAME} | Play & Earn Real Rewards – Official APK Portal`,
     description:
-      'Download all official Yono Game apps in one place with free signup bonus and instant cashout.',
+      `Download official ${SITE_NAME} APK in one place with free signup bonus and instant cashout.`,
     images: ['/assets/img/logo-rummyzip.svg'],
   },
 };
@@ -53,7 +54,7 @@ export default async function HomePage() {
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'Yono Rummy Zip',
+    name: SITE_NAME,
     url: SITE_URL,
     potentialAction: {
       '@type': 'SearchAction',

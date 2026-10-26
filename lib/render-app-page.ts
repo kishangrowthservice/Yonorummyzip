@@ -16,19 +16,19 @@ function escapeHtml(str?: string | null): string {
 
 import { getPageData } from './pages-data';
 
-let cachedNavbar = '';
-let cachedFooter = '';
-
 export function getLayoutSnippets() {
+  const siteName = process.env.NEXT_PUBLIC_SITE_NAME || 'Yono Rummy Zip';
+  const siteDomain = process.env.NEXT_PUBLIC_SITE_DOMAIN || 'yonorummyzip.com';
+
   const navbar = `
     <nav class="winner-navbar">
       <div class="winner-nav-inner">
         <div class="winner-logo-section">
           <a href="/">
-            <img src="/assets/img/logo-rummyzip.svg" alt="Yono Rummy Zip Logo" width="76" height="76" class="winner-logo-img">
+            <img src="/assets/img/logo-rummyzip.svg" alt="${siteName} Logo" width="76" height="76" class="winner-logo-img" onerror="this.onerror=null;this.src='/assets/img/logo.png';">
           </a>
         </div>
-        <a href="/" class="winner-nav-title">YonoRummyZip.com</a>
+        <a href="/" class="winner-nav-title">${siteDomain}</a>
         <div class="winner-telegram-section">
           <a href="https://t.me/yonorummyzip" target="_blank" rel="noopener noreferrer" class="winner-telegram-icon" aria-label="Join Official Telegram">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -46,9 +46,9 @@ export function getLayoutSnippets() {
       <div class="winner-container">
         <div class="winner-footer-grid">
           <div>
-            <a href="/" class="winner-footer-logo">YonoRummyZip.com</a>
+            <a href="/" class="winner-footer-logo">${siteDomain}</a>
             <p class="winner-footer-desc">
-              Your trusted hub for downloading verified Yono Games, Rummy APKs, and exciting Teen Patti apps with instant UPI cashouts and exclusive signup bonuses.
+              Your official portal for downloading verified ${siteName} APK, Rummy apps, and exciting card games with instant UPI cashouts and exclusive signup bonuses.
             </p>
           </div>
           <div>
@@ -72,7 +72,7 @@ export function getLayoutSnippets() {
           </div>
         </div>
         <div class="winner-footer-bottom">
-          <p>© ${new Date().getFullYear()} YonoRummyZip.com – All Rights Reserved. Not affiliated with SBI.</p>
+          <p>© ${new Date().getFullYear()} ${siteDomain} – All Rights Reserved. Not affiliated with SBI.</p>
         </div>
       </div>
     </footer>
@@ -81,9 +81,27 @@ export function getLayoutSnippets() {
   return { navbar, footer };
 }
 
-export function applyWinnerLayout(html: string): string {
+export function applyWinnerLayout(html: string, slug?: string): string {
   const { navbar, footer } = getLayoutSnippets();
   let result = html;
+
+  if (slug) {
+    try {
+      const cataloguePath = path.join(process.cwd(), 'data', 'games-catalogue.json');
+      if (fs.existsSync(cataloguePath)) {
+        const cat = JSON.parse(fs.readFileSync(cataloguePath, 'utf8'));
+        const found = cat.find((g: any) => g.slug?.toLowerCase() === slug.toLowerCase());
+        if (found && found.downloadUrl) {
+          result = result.replace(
+            /<a\s+href="#"\s+class="btn btn-primary([^"]*)">/g,
+            `<a href="${found.downloadUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary$1">`
+          );
+        }
+      }
+    } catch {
+      // ignore
+    }
+  }
 
   const navStart = result.indexOf('<nav');
   const navEnd = result.indexOf('</nav>');
@@ -110,7 +128,7 @@ export function renderAppPage(app: AppRecord): string {
   const bonus = app.signup_bonus ?? 0;
   const minW = app.min_withdrawal ?? 100;
   const rating = (app.rating || 4.5).toFixed(1);
-  const logo = app.logo_url || '/assets/img/logo-rummyzip.svg';
+  const logo = app.logo_url || '/assets/img/logo.png';
   const rawDownloadUrl = app.download_url || '#';
   const downloadUrl = resolveDownloadUrl(rawDownloadUrl, app.slug);
   const category = escapeHtml((app.category || 'yono games').toUpperCase());
@@ -125,8 +143,8 @@ export function renderAppPage(app: AppRecord): string {
     const items = app.screenshot_urls
       .map(
         (url, i) => `
-        <div class="flex-shrink-0 w-64 sm:w-72 rounded-2xl overflow-hidden border border-slate-200  bg-slate-50 shadow-md">
-          <img src="${url}" alt="${safeName} screenshot ${i + 1}" class="w-full h-auto object-cover" loading="lazy">
+        <div class="flex-shrink-0 w-64 sm:w-72 rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-md">
+          <img src="${url}" alt="${safeName} screenshot ${i + 1}" class="w-full h-auto object-cover" loading="lazy" onerror="this.parentElement.style.display='none';">
         </div>
       `
       )
@@ -134,7 +152,7 @@ export function renderAppPage(app: AppRecord): string {
 
     screenshotsHtml = `
       <div class="mt-8">
-        <h4 class="text-base sm:text-lg font-bold text-slate-900  mb-3">${safeName} Screenshots</h4>
+        <h4 class="text-base sm:text-lg font-bold text-slate-900 mb-3">${safeName} Screenshots</h4>
         <div class="flex items-center gap-4 overflow-x-auto pb-4 snap-x">
           ${items}
         </div>
@@ -145,8 +163,8 @@ export function renderAppPage(app: AppRecord): string {
   let bannerHtml = '';
   if (app.banner_url) {
     bannerHtml = `
-      <div class="mt-6 mb-8 rounded-2xl overflow-hidden border border-slate-200  shadow-sm max-h-80">
-        <img src="${app.banner_url}" alt="${safeName} Banner" class="w-full h-full object-cover">
+      <div class="mt-6 mb-8 rounded-2xl overflow-hidden border border-slate-200 shadow-sm max-h-80">
+        <img src="${app.banner_url}" alt="${safeName} Banner" class="w-full h-full object-cover" onerror="this.parentElement.style.display='none';">
       </div>
     `;
   }
@@ -194,7 +212,7 @@ export function renderAppPage(app: AppRecord): string {
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-8 items-start">
       <!-- Left: App Card & CTA -->
       <div class="lg:col-span-4 rounded-2xl sm:rounded-3xl border border-slate-200 bg-white p-4 sm:p-8 text-center shadow-sm">
-        <img src="${logo}" alt="${safeName} logo" width="176" height="176" fetchpriority="high" class="w-28 h-28 sm:w-44 sm:h-44 rounded-2xl sm:rounded-3xl mx-auto object-cover shadow-lg border border-slate-200">
+        <img src="${logo}" alt="${safeName} logo" width="176" height="176" fetchpriority="high" class="w-28 h-28 sm:w-44 sm:h-44 rounded-2xl sm:rounded-3xl mx-auto object-cover shadow-lg border border-slate-200" onerror="this.onerror=null;this.src='/assets/img/logo.png';">
 
         <h1 class="text-base sm:text-xl font-extrabold text-slate-900 mt-3 sm:mt-4 mb-1">
           ${safeName} APK Download
@@ -238,10 +256,10 @@ export function renderAppPage(app: AppRecord): string {
 
         <!-- About Section -->
         <div>
-          <h2 class="text-base sm:text-lg font-bold text-slate-900  mb-3">
+          <h2 class="text-base sm:text-lg font-bold text-slate-900 mb-3">
             About ${safeName} App
           </h2>
-          <div class="text-xs sm:text-sm text-slate-600  leading-relaxed space-y-3">
+          <div class="text-xs sm:text-sm text-slate-600 leading-relaxed space-y-3">
             ${formattedDesc}
           </div>
         </div>
@@ -250,9 +268,9 @@ export function renderAppPage(app: AppRecord): string {
         ${screenshotsHtml}
 
         <!-- CTA Box -->
-        <div class="p-6 rounded-2xl bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 border border-indigo-200  text-center">
-          <h3 class="text-base sm:text-lg font-bold text-slate-900  mb-1">Ready to Play ${safeName}?</h3>
-          <p class="text-xs sm:text-sm text-slate-500  mb-4">Claim ₹${bonus} welcome bonus and start playing today!</p>
+        <div class="p-6 rounded-2xl bg-gradient-to-r from-indigo-500/10 via-purple-500/10 to-pink-500/10 border border-indigo-200 text-center">
+          <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-1">Ready to Play ${safeName}?</h3>
+          <p class="text-xs sm:text-sm text-slate-500 mb-4">Claim ₹${bonus} welcome bonus and start playing today!</p>
           <a href="${downloadUrl}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-3 rounded-full text-xs sm:text-sm font-extrabold text-white bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700 shadow-md shadow-emerald-500/25 active:scale-95 transition-all">
             <i class="fas fa-download"></i> Download APK Now
           </a>
@@ -261,12 +279,12 @@ export function renderAppPage(app: AppRecord): string {
     </div>
 
     <!-- Mobile Sticky Floating Bottom CTA Bar -->
-    <div class="fixed bottom-0 inset-x-0 z-40 bg-white/95  backdrop-blur-md border-t border-slate-200  p-2.5 px-4 shadow-2xl flex items-center justify-between gap-3 md:hidden">
+    <div class="fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 p-2.5 px-4 shadow-2xl flex items-center justify-between gap-3 md:hidden">
       <div class="flex items-center gap-3 min-w-0">
-        <img src="${logo}" alt="${safeName}" width="48" height="48" class="w-12 h-12 rounded-xl object-cover flex-shrink-0 shadow border border-slate-200 ">
+        <img src="${logo}" alt="${safeName}" width="48" height="48" class="w-12 h-12 rounded-xl object-cover flex-shrink-0 shadow border border-slate-200" onerror="this.onerror=null;this.src='/assets/img/logo.png';">
         <div class="min-w-0">
-          <div class="text-xs font-bold text-slate-900  truncate">${safeName}</div>
-          <div class="text-[11px] font-bold text-emerald-600 ">Bonus: ₹${bonus}</div>
+          <div class="text-xs font-bold text-slate-900 truncate">${safeName}</div>
+          <div class="text-[11px] font-bold text-emerald-600">Bonus: ₹${bonus}</div>
         </div>
       </div>
       <a href="${downloadUrl}" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full text-xs font-bold text-white bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 shadow-md active:scale-95 flex-shrink-0 transition-all flex items-center gap-1.5">
@@ -295,7 +313,7 @@ export function injectAppsIntoHomePage(originalHtml: string, apps: AppRecord[]):
     <div class="col-lg-4 col-md-6 col-12 game-item" data-title="${escapeHtml(app.name)}">
       <div class="game-list-card">
         <div class="game-rank" style="background: linear-gradient(135deg, #6366f1, #a855f7); color: white; font-weight: bold;">NEW</div>
-        <img src="${app.logo_url || '/assets/img/logo-rummyzip.svg'}" alt="${escapeHtml(app.name)} Logo" class="game-list-logo" style="object-fit: cover; border-radius: 18px;">
+        <img src="${app.logo_url || '/assets/img/logo.png'}" alt="${escapeHtml(app.name)} Logo" class="game-list-logo" style="object-fit: cover; border-radius: 18px;" onerror="this.onerror=null;this.src='/assets/img/logo.png';">
         <div class="game-list-content">
           <h4 class="game-list-title text-truncate">
             <a href="/${app.slug}" style="color: inherit; text-decoration: none;" title="Download ${escapeHtml(app.name)} APK">
@@ -343,7 +361,7 @@ export function injectAppsIntoListGrid(originalHtml: string, apps: AppRecord[]):
       (app) => `
     <div class="col-lg-3 col-md-6 col-6 game-item" data-title="${escapeHtml(app.name)}">
       <div class="game-grid-card">
-        <img src="${app.logo_url || '/assets/img/logo-rummyzip.svg'}" alt="${escapeHtml(app.name)} logo" class="game-grid-logo" style="object-fit: cover; border-radius: 18px;">
+        <img src="${app.logo_url || '/assets/img/logo.png'}" alt="${escapeHtml(app.name)} logo" class="game-grid-logo" style="object-fit: cover; border-radius: 18px;" onerror="this.onerror=null;this.src='/assets/img/logo.png';">
         <h4 class="game-grid-title text-truncate">${escapeHtml(app.name)}</h4>
         <div class="game-info">
           <div class="game-info-row">
