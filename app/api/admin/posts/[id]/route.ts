@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { getPostById, updatePost, deletePost } from '@/lib/postsStore';
 import { createSupabaseServerClient } from '@/lib/supabase-server';
 
@@ -54,6 +55,17 @@ export async function PUT(
     };
 
     const updated = await updatePost(id, normalized, currentSite);
+
+    try {
+      revalidatePath('/blog');
+      revalidatePath('/blog/[slug]', 'page');
+      revalidatePath(`/blog/${updated.slug}`);
+      revalidatePath('/admin/blog');
+      revalidatePath('/');
+    } catch {
+      // ignore
+    }
+
     return NextResponse.json({ post: updated });
   } catch (err: unknown) {
     console.error('[PUT /api/admin/posts/[id]] Error:', err);
@@ -80,6 +92,16 @@ export async function DELETE(
     if (!success) {
       return NextResponse.json({ error: 'Post not found or already deleted' }, { status: 404 });
     }
+
+    try {
+      revalidatePath('/blog');
+      revalidatePath('/blog/[slug]', 'page');
+      revalidatePath('/admin/blog');
+      revalidatePath('/');
+    } catch {
+      // ignore
+    }
+
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
     console.error('[DELETE /api/admin/posts/[id]] Error:', err);

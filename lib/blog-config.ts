@@ -17,7 +17,7 @@ export interface SiteConfig {
 export const SITE_CONFIG: SiteConfig = {
   name: process.env.NEXT_PUBLIC_SITE_NAME || 'Yono Rummy Zip',
   tagline: "India's #1 Yono Rummy Zip — Yono Games, Rummy & Teen Patti Official Portal",
-  domain: process.env.SITE_DOMAIN || 'allyonogames99.com',
+  domain: process.env.SITE_DOMAIN || 'yonorummyzip.com',
   url: SITE_URL,
   downloadUrl: '/',
   telegramUrl: 'https://t.me/yonorummyzip',

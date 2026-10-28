@@ -22,7 +22,7 @@ export function normalizeSiteDomain(site?: string | null): string {
 }
 
 export function getCurrentSiteDomain(): string {
-  return normalizeSiteDomain(process.env.SITE_DOMAIN || 'allyonogames99.com');
+  return normalizeSiteDomain(process.env.SITE_DOMAIN || 'yonorummyzip.com');
 }
 
 const listCache: Record<string, { data: BlogPost[]; cachedAt: number }> = {};
@@ -115,7 +115,7 @@ export async function getAllPosts(
     }
 
     if (effectiveSite !== 'all') {
-      query = query.eq('target_site', effectiveSite);
+      query = (effectiveSite === 'yonorummyzip.com' || effectiveSite === 'yonorummnyzip.com') ? query.in('target_site', ['yonorummyzip.com', 'yonorummnyzip.com']) : query.eq('target_site', effectiveSite);
     }
 
     const { data, error } = await query;
@@ -138,7 +138,7 @@ export async function getAllPosts(
     filtered = filtered.filter((p) => p.status === filter);
   }
   if (effectiveSite !== 'all') {
-    filtered = filtered.filter((p) => normalizeSiteDomain(p.target_site) === effectiveSite);
+    filtered = filtered.filter((p) => { const n = normalizeSiteDomain(p.target_site); return (effectiveSite === 'yonorummyzip.com' || effectiveSite === 'yonorummnyzip.com') ? (n === 'yonorummyzip.com' || n === 'yonorummnyzip.com') : n === effectiveSite; });
   }
 
   listCache[cacheKey] = { data: filtered, cachedAt: now };

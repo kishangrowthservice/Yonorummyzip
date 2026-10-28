@@ -14,6 +14,9 @@ const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || '';
 // ── Service-role admin client (server-side API routes only — bypasses RLS) ──
 export const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
   auth: { autoRefreshToken: false, persistSession: false },
+  global: {
+    fetch: (url, options) => fetch(url, { ...options, cache: 'no-store' }),
+  },
 });
 
 // For Server Components / Route Handlers

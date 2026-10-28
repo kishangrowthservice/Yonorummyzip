@@ -12,7 +12,7 @@ export function createSupabaseBrowserClient() {
   return createBrowserClient(supabaseUrl, supabaseAnonKey);
 }
 
-export const CURRENT_SITE_ID = process.env.NEXT_PUBLIC_SITE_ID || 'allyonogames99';
+export const CURRENT_SITE_ID = process.env.NEXT_PUBLIC_SITE_ID || 'yonorummyzip';
 
 // ── TypeScript type for the apps table ──
 export interface AppRecord {

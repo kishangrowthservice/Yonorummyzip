@@ -43,7 +43,7 @@ export async function getAllMergedGames(): Promise<GameItem[]> {
       .from('apps')
       .select('*')
       .eq('status', 'active')
-      .eq('site', CURRENT_SITE_ID)
+      .in('site', (CURRENT_SITE_ID === 'yonorummyzip' || CURRENT_SITE_ID === 'yonorummnyzip') ? ['yonorummyzip', 'yonorummnyzip'] : [CURRENT_SITE_ID])
       .order('sort_order', { ascending: true })
       .order('created_at', { ascending: false });
 

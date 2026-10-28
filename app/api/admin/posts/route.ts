@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { revalidatePath } from 'next/cache';
 import { getAllPosts, createPost } from '@/lib/postsStore';
 import { withIdempotency } from '@/lib/idempotency';
 import { createSupabaseServerClient } from '@/lib/supabase-server';
@@ -76,6 +77,15 @@ export async function POST(req: NextRequest) {
         published_at:
           body.status === 'published' ? body.published_at || new Date().toISOString() : null,
       });
+
+      try {
+        revalidatePath('/blog');
+        revalidatePath('/blog/[slug]', 'page');
+        revalidatePath('/admin/blog');
+        revalidatePath('/');
+      } catch {
+        // ignore
+      }
 
       return {
         statusCode: 201,

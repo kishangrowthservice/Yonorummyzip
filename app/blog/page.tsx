@@ -8,6 +8,8 @@ import WinnerNavbar from '@/app/components/WinnerNavbar';
 import WinnerFooter from '@/app/components/WinnerFooter';
 
 export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+export const fetchCache = 'force-no-store';
 
 export const metadata: Metadata = {
   title: 'Blog & Game Guides — Yono Rummy Zip',
