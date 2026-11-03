@@ -22,6 +22,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
+  verification: {
+    google: 'tVqzvUyR4v2HlpZYF8KLVPdgSbz50xRbE6za_X_Hva8',
+  },
   icons: {
     icon: '/assets/img/logo-rummyzip.svg',
     shortcut: '/assets/img/logo-rummyzip.svg',
